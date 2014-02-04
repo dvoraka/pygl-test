@@ -7,7 +7,7 @@ import random
 import time
 import math
 
-# Pyglet debug output
+# Pyglet debug
 pyglet.options['debug_gl'] = False
 from pyglet.gl import *
 from pyglet.graphics import *
