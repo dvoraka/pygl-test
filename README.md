@@ -3,7 +3,7 @@ pygl-test
 
 Fixed pipeline OpenGL test. It is prototype which leads to another one with programmable pipeline. Not everything is implemented yet and maybe never will be, but it can be fun to play with code.
 
-You can go forward with up, remove and insert blocks with mouse buttons a and go up with page up.
+You can go forward with Up, remove and insert blocks with mouse buttons a and go up with Page up. If you get stuck somewhere, press Page up.
 
 
 ### Screenshots
