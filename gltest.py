@@ -328,7 +328,8 @@ class BlockWorld():
         self.check_visibility()
 
         elapsed = time.clock() - start
-        print('Init world: {}'.format(elapsed))
+        if __debug__:
+            print('Init world: {}'.format(elapsed))
 
     def init_world(self, width, height, depth):
         
@@ -502,7 +503,8 @@ class BlockWorld():
                             self.world[(x, y, z)].render = True
                             render_counter += 1
 
-        print('Rendering {} objects.'.format(render_counter))
+        if __debug__:
+            print('Rendering {} objects.'.format(render_counter))
 
     def collide(self, pos_x, pos_y, pos_z):
         
@@ -659,8 +661,9 @@ class GameWindow(pyglet.window.Window):
             self.update_render_area, 1.0 / 2.0)
         pyglet.clock.schedule_interval(
             self.update_render_visibility, 1.0 / 2.0)
-        pyglet.clock.schedule_interval(
-            self.print_fps, 2.0 / 1.0)
+        if __debug__:
+            pyglet.clock.schedule_interval(
+                self.print_fps, 2.0 / 1.0)
 
         self.fps_display = pyglet.clock.ClockDisplay()
 
@@ -700,7 +703,8 @@ class GameWindow(pyglet.window.Window):
 
     def on_resize(self, width, height):
 
-        print('on resize')
+        if __debug__:
+            print('on resize')
 
         if height == 0:
             height = 1
