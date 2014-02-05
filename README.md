@@ -22,6 +22,8 @@ $ ./gltest.py
 
 ![](/imgs/img3-m.png)
 
+![](/imgs/img5-m.png)
+
 ![](/imgs/img2-m.png)
 
 ![](/imgs/img4-m.png)
