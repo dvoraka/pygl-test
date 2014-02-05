@@ -909,11 +909,13 @@ class GameWindow(pyglet.window.Window):
         if self.keyboard[key.L]:
 
             #print('L')
+            glDisable(GL_CULL_FACE)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
 
         if self.keyboard[key.F]:
 
             #print('F')
+            glEnable(GL_CULL_FACE)
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
         if self.keyboard[key.P]:
