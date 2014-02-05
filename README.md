@@ -6,6 +6,17 @@ Fixed pipeline OpenGL test. It is prototype which leads to another one with prog
 You can go forward with Up, remove and insert blocks with mouse buttons a and go up with Page up. If you get stuck somewhere, press Page up.
 
 
+### Run test
+Install dependencies:
+```
+$ pip install -r requirements.txt
+```
+Run:
+```
+$ ./gltest.py
+```
+
+
 ### Screenshots
 ![](/imgs/img1-m.png)
 
