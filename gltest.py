@@ -606,7 +606,9 @@ class BlockWorld():
 
                     continue
 
-            glPushMatrix(GL_MODELVIEW)
+            glMatrixMode(GL_MODELVIEW)
+            glPushMatrix()
+            #glPushMatrix(GL_MODELVIEW)
 
             glTranslatef(
                 float(pos[0]),
@@ -617,8 +619,8 @@ class BlockWorld():
             block.draw()
             #self.batch.draw()
 
-            glPopMatrix(GL_MODELVIEW)
-
+            #glPopMatrix(GL_MODELVIEW)
+            glPopMatrix()
 
 class Camera():
 
