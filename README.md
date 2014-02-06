@@ -8,7 +8,7 @@ You can go forward with Up, remove and insert blocks with mouse buttons a and go
 
 ### Run test
 
-You need Python 2.7.
+You need Python 2.7 to run and it's good to have virtualenv package.
 
 Install dependencies:
 
