@@ -1,5 +1,4 @@
-pygl-test
-=========
+# Introduction
 
 Fixed pipeline OpenGL test. It is prototype which leads to another one with programmable pipeline. Not everything is implemented yet and maybe never will be, but it can be fun to play with code.
 
