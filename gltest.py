@@ -672,6 +672,7 @@ class GameWindow(pyglet.window.Window):
         self.plane = Plane()
 
         self.world = BlockWorld(20, 4, 60)
+        self.area_size = 10
 
         self.setup()
 
@@ -840,7 +841,7 @@ class GameWindow(pyglet.window.Window):
             - self.cam.pos_x,
             - self.cam.pos_y,
             - self.cam.pos_z,
-            12
+            self.area_size
         )
 
     def update(self, dt):
@@ -904,6 +905,14 @@ class GameWindow(pyglet.window.Window):
 
             #print('PDOWN')
             self.cam.pos_y += 0.4
+
+        if self.keyboard[key.NUM_ADD]:
+
+            self.area_size += 1
+
+        elif self.keyboard[key.NUM_SUBTRACT]:
+
+            self.area_size -= 1
 
         if self.keyboard[key.L]:
 
