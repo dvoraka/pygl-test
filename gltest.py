@@ -671,7 +671,7 @@ class GameWindow(pyglet.window.Window):
         self.block = Block()
         self.plane = Plane()
 
-        self.world = BlockWorld(20, 4, 60)
+        self.world = BlockWorld(20, 6, 60)
         self.area_size = 10
 
         self.setup()
