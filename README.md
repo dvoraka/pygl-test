@@ -19,6 +19,18 @@ Run:
 $ ./gltest.py
 ```
 
+### Controls
+
+Key | Action
+---|---
+UP | forward
+Page UP | fly up
+Mouse left | remove block
+Mouse right | insert block
++/- | set visibility
+L | lines rendering
+F | full rendering
+
 
 ## Screenshots
 ![](/imgs/img1-m.png)
