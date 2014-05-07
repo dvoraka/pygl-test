@@ -333,37 +333,14 @@ class BlockWorld():
 
     def init_world(self, width, height, depth):
         
-        #self.batch = pyglet.graphics.Batch()
-
         blocks = {}
         for w in range(width):
             for h in range(height):
                 for d in range(depth):
 
                     if random.randint(0, 4) in (0, 1, 2):
-
-#                        blocks[(w, h, d)] = Block()
-#
-#                        colors = []
-#                        for i in range(6):
-#                            for _ in range(6):
-#
-#                                colors.extend((w, h, d, i))
-#
-#                        blocks[(w, h, d)].v_list.colors = colors
-                        
+                       
                         blocks[(w, h, d)] = self.prepare_block((w, h, d))
-
-                       # b_data = blocks[(w, h, d)].get_status()
-                       # print(b_data)
-                       # self.batch.add(
-                       #     b_data[0],
-                       #     GL_TRIANGLES,
-                       #     b_data[1],
-                       #     b_data[2],
-                       #     b_data[3],
-                       #     b_data[4]
-                       # )
 
                     else:
 
@@ -516,9 +493,6 @@ class BlockWorld():
 
             if self.world[(x, y, z)] is not None:
 
-#                print(self.world[(x, y, z)])
-#                print((x, y, z))
-                
                 return True
 
         return False
@@ -544,7 +518,6 @@ class BlockWorld():
     def delete(self, position):
         
         self.world[position] = None
-        #print('Deleting {}...'.format(position))
 
     def insert(self, position, id):
         
@@ -615,7 +588,6 @@ class BlockWorld():
             )
                 
             block.draw()
-            #self.batch.draw()
             glPopMatrix()
 
 
@@ -794,7 +766,6 @@ class GameWindow(pyglet.window.Window):
 
         a = (4 * GLubyte)()
         glReadPixels(x, y, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, a)
-        #print('Before: ({}, {}, {})'.format(a[0], a[1], a[2]))
 
         glDisable(GL_LIGHTING)
         glDisable(GL_TEXTURE_2D)
@@ -803,7 +774,6 @@ class GameWindow(pyglet.window.Window):
 
         a = (4 * GLubyte)()
         glReadPixels(x, y, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, a)
-        #print('After: ({}, {}, {}, {})'.format(a[0], a[1], a[2], a[3]))
 
         glEnable(GL_LIGHTING)
         glEnable(GL_TEXTURE_2D)
