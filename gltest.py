@@ -815,41 +815,42 @@ class GameWindow(pyglet.window.Window):
         )
 
     def update(self, dt):
-       
-        new_y = self.cam.pos_y + 0.9
+
+        # simple gravity simulation
+        new_y = self.cam.pos_y + 0.6
         if self.world.collide(- self.cam.pos_x, - new_y, - self.cam.pos_z):
 
-            #print('Collide')
             pass
 
         else:
             
             self.cam.pos_y += 0.1
 
+        step_size = 0.06
+        border_size = 0.05
         if self.keyboard[key.UP]:
 
-            #print('UP')
-            #self.cam.pos_z += 0.4
+            # vertical angle
             y_a = math.radians(self.cam.vert_angle)
 
-            new_z = self.cam.pos_z + 0.1 * math.cos(y_a)
-            new_x = self.cam.pos_x - 0.1 * math.sin(y_a)
+            new_z = self.cam.pos_z + (step_size + border_size) * math.cos(y_a)
+            new_x = self.cam.pos_x - (step_size + border_size) * math.sin(y_a)
 
-            if self.world.collide(- new_x, - self.cam.pos_y, - new_z):
+            if self.world.collide(-self.cam.pos_x, -self.cam.pos_y, -new_z):
 
-                #print('Collide')
                 pass
 
             else:
-            
-                self.cam.pos_z += 0.05 * math.cos(y_a)
-                self.cam.pos_x -= 0.05 * math.sin(y_a)
 
-           # print('Collide: {}'.format(self.world.collide(
-           #     - self.cam.pos_x,
-           #     - self.cam.pos_y,
-           #     - self.cam.pos_z
-           # )))
+                self.cam.pos_z += step_size * math.cos(y_a)
+
+            if self.world.collide(-new_x, -self.cam.pos_y, -self.cam.pos_z):
+
+                pass
+
+            else:
+
+                self.cam.pos_x -= step_size * math.sin(y_a)
 
         elif self.keyboard[key.DOWN]:
 
