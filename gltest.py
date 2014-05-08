@@ -818,13 +818,18 @@ class GameWindow(pyglet.window.Window):
 
         # simple gravity simulation
         new_y = self.cam.pos_y + 0.6
-        if self.world.collide(- self.cam.pos_x, - new_y, - self.cam.pos_z):
+        if self.world.collide(-self.cam.pos_x, -new_y, -self.cam.pos_z):
 
             pass
 
         else:
             
             self.cam.pos_y += 0.1
+
+        # in block collision helper
+        if self.world.collide(-self.cam.pos_x, -self.cam.pos_y + 0.6 - 1.0, -self.cam.pos_z):
+
+            self.cam.pos_y -= 0.2
 
         step_size = 0.06
         border_size = 0.05
