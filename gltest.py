@@ -860,17 +860,20 @@ class GameWindow(pyglet.window.Window):
         elif self.keyboard[key.DOWN]:
 
             #print('DOWN')
-            self.cam.pos_z -= 0.4
+            #self.cam.pos_z -= 0.4
+            pass
 
         if self.keyboard[key.LEFT]:
 
             #print('LEFT')
-            self.cam.pos_x += 0.4
+            #self.cam.pos_x += 0.4
+            pass
 
         elif self.keyboard[key.RIGHT]:
 
             #print('RIGHT')
-            self.cam.pos_x -= 0.4
+            #self.cam.pos_x -= 0.4
+            pass
 
         if self.keyboard[key.PAGEUP]:
 
