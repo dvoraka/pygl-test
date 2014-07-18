@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import pyglet
+#
 
 import random
 import time
 import math
+import pyglet
 
 # Pyglet debug
 pyglet.options['debug_gl'] = False
-from pyglet.gl import *
+
 from pyglet.graphics import *
 from pyglet.window import key
 from pyglet.window import mouse
@@ -279,7 +279,7 @@ class Block():
             0.5, 1
         )
 
-        self.v_list = vertex_list(
+        v_list = vertex_list(
             36,
             ('v3f/static', self.vertexes),
             ('c4B', self.colors),
@@ -287,7 +287,7 @@ class Block():
             ('t2f/static', self.tcoords),
         )
 
-        return self.v_list
+        return v_list
 
     def get_status(self):
         
@@ -310,7 +310,7 @@ class Block():
 
     def draw2(self):
 
-        Block.v_list.draw(GL_TRIANGLES)
+        self.v_list.draw(GL_TRIANGLES)
 
 
 class BlockWorld():
