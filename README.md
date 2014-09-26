@@ -1,20 +1,20 @@
 # Introduction
 
-Fixed pipeline OpenGL test. It is prototype which led to [another one](https://github.com/dvoraka/pygl-prototype) with programmable pipeline. Not everything is implemented yet and maybe never will be, but it can be fun to play with code.
+Fixed pipeline OpenGL test. It is a prototype which led to [another one](https://github.com/dvoraka/pygl-prototype) with programmable pipeline. Not everything is implemented yet and maybe never will be, but it can be fun to play with code.
 
-You can go forward with Up, remove and insert blocks with mouse buttons a and go up with Page up. If you get stuck somewhere, press Page up.
+You can go forward with Up, remove and insert blocks with mouse buttons and go up with Page up. If you get stuck somewhere, press Page up.
 
 
 ## Run test
 
 You need Python 2.7 to run and it's good to have virtualenv package.
 
-Install dependencies:
+##### Install dependencies:
 
 ```
 $ pip install -r requirements.txt
 ```
-Run:
+##### Run:
 ```
 $ ./gltest.py
 ```
