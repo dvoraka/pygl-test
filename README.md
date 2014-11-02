@@ -1,4 +1,5 @@
 # Introduction
+[![Build Status](https://travis-ci.org/dvoraka/pygl-test.svg?branch=master)](https://travis-ci.org/dvoraka/pygl-test)
 
 Fixed pipeline OpenGL test. It is a prototype which led to [another one](https://github.com/dvoraka/pygl-prototype) with programmable pipeline. Not everything is implemented yet and maybe never will be, but it can be fun to play with code.
 
