@@ -436,7 +436,7 @@ class BlockWorld():
 
                             omit_counter += 1
 
-        #print('All/Visible/omited: {}/{}/{}'.format(
+        # print('All/Visible/omited: {}/{}/{}'.format(
         #    all_counter, vis_counter, omit_counter))
 
     def set_render_area(self, pos_x, pos_y, pos_z, size):
@@ -608,12 +608,12 @@ class GameWindow(pyglet.window.Window):
     def __init__(self):
 
         cfg = pyglet.gl.Config(alpha_size=8, depth_size=8)
-        #window = pyglet.window.Window(config=config)
+        # window = pyglet.window.Window(config=config)
 
-        #super(GameWindow, self).__init__(config=cfg, fullscreen=True)
+        # super(GameWindow, self).__init__(config=cfg, fullscreen=True)
         super(GameWindow, self).__init__(config=cfg)
 
-        #print(self.config.get_gl_attributes())
+        # print(self.config.get_gl_attributes())
 
         self.set_caption('GL test')
         self.set_exclusive_mouse(True)
@@ -653,7 +653,7 @@ class GameWindow(pyglet.window.Window):
         glClearColor(0.8, 0.8, 1.0, 0.0)
 
         glEnable(GL_DEPTH_TEST)
-        #glDepthFunc(GL_LESS)
+        # glDepthFunc(GL_LESS)
 
         glEnable(GL_BLEND)
 
@@ -669,7 +669,7 @@ class GameWindow(pyglet.window.Window):
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
-        #glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
+        # glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
@@ -688,7 +688,7 @@ class GameWindow(pyglet.window.Window):
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
         gluPerspective(70, 1.0 * width / height, 0.01, 300.0)
-        #glLoadIdentity()
+        # glLoadIdentity()
 
         # light parameters
         def vec(*args):
@@ -727,10 +727,10 @@ class GameWindow(pyglet.window.Window):
 
     def set2d(self):
 
-#        glDisable(GL_DEPTH_TEST)
-#        glDisable(GL_LIGHTING)
+        # glDisable(GL_DEPTH_TEST)
+        # glDisable(GL_LIGHTING)
 
-        #glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+        # glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
         # store the projection matrix to restore later
         glMatrixMode(GL_PROJECTION)
@@ -738,7 +738,7 @@ class GameWindow(pyglet.window.Window):
 
         # load orthographic projection matrix
         glLoadIdentity()
-        #glOrtho(0, float(self.width),0, float(self.height), 0, 1)
+        # glOrtho(0, float(self.width),0, float(self.height), 0, 1)
         far = 8192
         glOrtho(
             -self.width / 2.,
@@ -751,12 +751,12 @@ class GameWindow(pyglet.window.Window):
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
 
-        #glClear(GL_COLOR_BUFFER_BIT)
+        # glClear(GL_COLOR_BUFFER_BIT)
 
     def unset2d(self):
 
-#        glEnable(GL_DEPTH_TEST)
-#        glEnable(GL_LIGHTING)
+        # glEnable(GL_DEPTH_TEST)
+        # glEnable(GL_LIGHTING)
 
         # load back the projection matrix saved before
         glMatrixMode(GL_PROJECTION)
@@ -862,30 +862,30 @@ class GameWindow(pyglet.window.Window):
 
         elif self.keyboard[key.DOWN]:
 
-            #print('DOWN')
-            #self.cam.pos_z -= 0.4
+            # print('DOWN')
+            # self.cam.pos_z -= 0.4
             pass
 
         if self.keyboard[key.LEFT]:
 
-            #print('LEFT')
-            #self.cam.pos_x += 0.4
+            # print('LEFT')
+            # self.cam.pos_x += 0.4
             pass
 
         elif self.keyboard[key.RIGHT]:
 
-            #print('RIGHT')
-            #self.cam.pos_x -= 0.4
+            # print('RIGHT')
+            # self.cam.pos_x -= 0.4
             pass
 
         if self.keyboard[key.PAGEUP]:
 
-            #print('PUP')
+            # print('PUP')
             self.cam.pos_y -= 0.4
 
         elif self.keyboard[key.PAGEDOWN]:
 
-            #print('PDOWN')
+            # print('PDOWN')
             self.cam.pos_y += 0.4
 
         if self.keyboard[key.NUM_ADD]:
@@ -898,23 +898,23 @@ class GameWindow(pyglet.window.Window):
 
         if self.keyboard[key.L]:
 
-            #print('L')
+            # print('L')
             glDisable(GL_CULL_FACE)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
 
         if self.keyboard[key.F]:
 
-            #print('F')
+            # print('F')
             glEnable(GL_CULL_FACE)
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
         if self.keyboard[key.P]:
 
-            #NOTE: broken
-            #pyglet.image.get_buffer_manager() \
+            # NOTE: broken
+            # pyglet.image.get_buffer_manager() \
             #    .get_color_buffer() \
             #    .save('screenshot.png')
-            #time.sleep(0.3)
+            # time.sleep(0.3)
             pass
 
         if self.keyboard[key.NUM_1]:
