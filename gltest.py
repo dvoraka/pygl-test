@@ -10,7 +10,7 @@ import pyglet
 # Pyglet debug
 pyglet.options['debug_gl'] = False
 
-from pyglet.graphics import *
+from pyglet.graphics import *  # NOQA
 from pyglet.window import key
 from pyglet.window import mouse
 
@@ -27,7 +27,7 @@ class Plane():
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
 
     def draw(self):
-        
+
         self.v_list = vertex_list(
             6,
             ('v3f', (
@@ -63,7 +63,7 @@ class Plane():
 class Block():
 
     def __init__(self):
-        
+
         self.num_vertices = None
         self.vertexes = None
         self.normals = None
@@ -82,7 +82,7 @@ class Block():
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
 
     def init_block(self):
-        
+
         self.num_vertices = 36
 
         self.vertexes = (
@@ -245,7 +245,7 @@ class Block():
             0, 0,
             0.5, 1.0,
             0, 1.0,
-            
+
             # right
             0, 0,
             0.5, 0,
@@ -253,7 +253,7 @@ class Block():
             0, 0,
             0.5, 1.0,
             0, 1.0,
-           
+
             # top
             0.5, 0,
             1.0, 0,
@@ -261,7 +261,7 @@ class Block():
             0.5, 0,
             1.0, 1.0,
             0.5, 1.0,
-          
+
             # bottom
             0.5, 1.0,
             0, 0,
@@ -269,7 +269,7 @@ class Block():
             0.5, 1.0,
             0.5, 0,
             0, 0,
- 
+
             # back
             0.5, 0,
             0, 0,
@@ -290,7 +290,7 @@ class Block():
         return v_list
 
     def get_status(self):
-        
+
         return (
             self.num_vertices,
             None,
@@ -300,7 +300,7 @@ class Block():
         )
 
     def print_status(self):
-        
+
         print(self.v_list.colors)
 
     def draw(self):
@@ -316,11 +316,11 @@ class Block():
 class BlockWorld():
 
     def __init__(self, width, height, depth):
- 
+
         self.world_width = width
         self.world_height = height
         self.world_depth = depth
-       
+
         start = time.clock()
 
         self.batch = None
@@ -332,14 +332,14 @@ class BlockWorld():
             print('Init world: {}'.format(elapsed))
 
     def init_world(self, width, height, depth):
-        
+
         blocks = {}
         for w in range(width):
             for h in range(height):
                 for d in range(depth):
 
                     if random.randint(0, 4) in (0, 1, 2):
-                       
+
                         blocks[(w, h, d)] = self.prepare_block((w, h, d))
 
                     else:
@@ -349,9 +349,9 @@ class BlockWorld():
         return blocks
 
     def check_visibility(self):
-        
+
         all_counter = 0
-        none_counter = 0
+        # none_counter = 0
         vis_counter = 0
         omit_counter = 0
 
@@ -440,7 +440,7 @@ class BlockWorld():
         #    all_counter, vis_counter, omit_counter))
 
     def set_render_area(self, pos_x, pos_y, pos_z, size):
-        
+
         render_counter = 0
 
         # disable all blocks for rendering
@@ -484,7 +484,7 @@ class BlockWorld():
             print('Rendering {} objects.'.format(render_counter))
 
     def collide(self, pos_x, pos_y, pos_z):
-        
+
         x = int(pos_x)
         y = int(pos_y)
         z = int(pos_z) + 1
@@ -516,11 +516,11 @@ class BlockWorld():
         return block
 
     def delete(self, position):
-        
+
         self.world[position] = None
 
     def insert(self, position, id):
-        
+
         if id == 0:
 
             new_position = list(position)
@@ -571,7 +571,7 @@ class BlockWorld():
             else:
 
                 if block.visible is False:
-                
+
                     continue
 
                 if block.render is False:
@@ -586,7 +586,7 @@ class BlockWorld():
                 float(pos[1]),
                 float(pos[2])
             )
-                
+
             block.draw()
             glPopMatrix()
 
@@ -604,15 +604,15 @@ class Camera():
 
 
 class GameWindow(pyglet.window.Window):
-    
+
     def __init__(self):
-        
+
         cfg = pyglet.gl.Config(alpha_size=8, depth_size=8)
         #window = pyglet.window.Window(config=config)
 
         #super(GameWindow, self).__init__(config=cfg, fullscreen=True)
         super(GameWindow, self).__init__(config=cfg)
-        
+
         #print(self.config.get_gl_attributes())
 
         self.set_caption('GL test')
@@ -701,7 +701,7 @@ class GameWindow(pyglet.window.Window):
         glMaterialfv(GL_FRONT, GL_SHININESS, vec(1.0))
 
     def on_draw(self):
-        
+
         self.clear()
 
         # Clear buffers
@@ -785,7 +785,7 @@ class GameWindow(pyglet.window.Window):
             self.world.delete((a[0], a[1], a[2]))
 
         elif button == mouse.RIGHT:
-            
+
             self.world.insert((a[0], a[1], a[2]), a[3])
 
     def on_mouse_motion(self, x, y, dx, dy):
@@ -794,7 +794,7 @@ class GameWindow(pyglet.window.Window):
         self.cam.vert_angle += float(dx)
 
     def select_test(self):
-        
+
         pass
 
     def print_fps(self, dt):
@@ -802,11 +802,11 @@ class GameWindow(pyglet.window.Window):
         print(pyglet.clock.get_fps())
 
     def update_render_visibility(self, dt):
-        
+
         self.world.check_visibility()
 
     def update_render_area(self, dt):
- 
+
         self.world.set_render_area(
             - self.cam.pos_x,
             - self.cam.pos_y,
@@ -823,11 +823,14 @@ class GameWindow(pyglet.window.Window):
             pass
 
         else:
-            
+
             self.cam.pos_y += 0.1
 
         # in block collision helper
-        if self.world.collide(-self.cam.pos_x, -self.cam.pos_y + 0.6 - 1.0, -self.cam.pos_z):
+        if self.world.collide(
+                -self.cam.pos_x,
+                -self.cam.pos_y + 0.6 - 1.0,
+                -self.cam.pos_z):
 
             self.cam.pos_y -= 0.2
 
